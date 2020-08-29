@@ -41,9 +41,9 @@
         "package": "feather-core",
         "repositoryURL": "https://github.com/binarybirds/feather-core",
         "state": {
-          "branch": null,
-          "revision": "7d506f8c8cb24fed70fdb31a34ce3b7b697ef9e0",
-          "version": "1.0.3"
+          "branch": "main",
+          "revision": "dfd249ca716e93ac1a63118abf926a84677528fb",
+          "version": null
         }
       },
       {
@@ -240,8 +240,8 @@
         "repositoryURL": "https://github.com/binarybirds/view-kit",
         "state": {
           "branch": null,
-          "revision": "03284ad7d18499ffb8d28451e5fb37d162e578ba",
-          "version": "1.1.4"
+          "revision": "e61d48361f46ea8f66d96208e7fd14920a22610a",
+          "version": "1.2.0-beta.1"
         }
       },
       {
@@ -249,8 +249,8 @@
         "repositoryURL": "https://github.com/binarybirds/viper-kit",
         "state": {
           "branch": null,
-          "revision": "7a3430688dd2d3685457e0ff225ebd876cce31e3",
-          "version": "1.3.3"
+          "revision": "ec07c0bc2e45d3fc0de3d993d137bde3d24e3b3e",
+          "version": "1.4.0-beta.1"
         }
       },
       {
