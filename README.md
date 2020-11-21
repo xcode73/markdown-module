@@ -1,12 +1,8 @@
-# Markdown module
+# Markdown module for Feather CMS
 
-This module is reponsible for displaying markdown via a content filter.
+This module is reponsible for rendering markdown by providing a content filter for [Feather CMS](https://github.com/binarybirds/feather/).
 
 
-## Dependencies
- 
- - Frontend module
- 
 ## Credits
  
 Powered by the [Ink](https://github.com/johnsundell/ink) library made by [John Sundell](https://twitter.com/johnsundell/).

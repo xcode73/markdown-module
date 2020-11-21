@@ -10,19 +10,16 @@ let package = Package(
         .library(name: "MarkdownModule", targets: ["MarkdownModule"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/binarybirds/feather-core", .branch("main")),
+        .package(url: "https://github.com/binarybirds/feather-core", from: "1.0.0-beta"),
         .package(url: "https://github.com/JohnSundell/Ink", from: "0.5.0"),
     ],
     targets: [
-        .target(name: "MarkdownModule",
-                dependencies: [
-                    .product(name: "FeatherCore", package: "feather-core"),
-                    .product(name: "Ink", package: "Ink"),
-                ]
-        ),
-        .testTarget(name: "MarkdownModuleTests",
-                    dependencies: [
-                        .target(name: "MarkdownModule"),
-                    ])
+        .target(name: "MarkdownModule", dependencies: [
+            .product(name: "FeatherCore", package: "feather-core"),
+            .product(name: "Ink", package: "Ink"),
+        ]),
+        .testTarget(name: "MarkdownModuleTests", dependencies: [
+            .target(name: "MarkdownModule"),
+        ])
     ]
 )
