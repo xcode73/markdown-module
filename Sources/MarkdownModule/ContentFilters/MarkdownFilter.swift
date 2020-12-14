@@ -25,7 +25,7 @@ struct MarkdownFilter: ContentFilter {
         
         let result = parser.html(from: input.replacingOccurrences(of: "\r", with: "\n"))
         return """
-        <div class="wrapper w">
+        <div class="content w">
             <section class="m:xl">
                 \(result)
             </section>
