@@ -10,6 +10,7 @@ import Ink
 
 /// markdown filter
 struct MarkdownFilter: ContentFilter {
+
     /// unique key for the filter
     var key: String { "markdown-ink" }
     /// label for the filter
@@ -19,14 +20,14 @@ struct MarkdownFilter: ContentFilter {
     func filter(_ input: String) -> String {
         var parser = MarkdownParser()
         let modifier = Modifier(target: .images) { html, markdown in
-            return html.replacingOccurrences(of: "<img src", with: "<img class=\"block br:s\" src")
+            return html.replacingOccurrences(of: "<img src", with: "<img class=\"display-block border-radius-s size-width-full\" src")
         }
         parser.addModifier(modifier)
         
         let result = parser.html(from: input.replacingOccurrences(of: "\r", with: "\n"))
         return """
-        <div class="content w">
-            <section class="m:xl">
+        <div class="container">
+            <section class="margin">
                 \(result)
             </section>
         </div>
