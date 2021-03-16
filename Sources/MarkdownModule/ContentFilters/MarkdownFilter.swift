@@ -20,14 +20,14 @@ struct MarkdownFilter: ContentFilter {
     func filter(_ input: String) -> String {
         var parser = MarkdownParser()
         let modifier = Modifier(target: .images) { html, markdown in
-            return html.replacingOccurrences(of: "<img src", with: "<img class=\"display-block border-radius-s size-width-full\" src")
+            return html.replacingOccurrences(of: "<img src", with: "<img class=\"\" src")
         }
         parser.addModifier(modifier)
         
         let result = parser.html(from: input.replacingOccurrences(of: "\r", with: "\n"))
         return """
         <div class="container">
-            <section class="margin">
+            <section>
                 \(result)
             </section>
         </div>
