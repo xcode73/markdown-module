@@ -14,9 +14,9 @@ public func createMarkdownModule() -> UnsafeMutableRawPointer {
 }
 
 /// builds a new module instance
-public final class MarkdownBuilder: ViperBuilder {
+public final class MarkdownBuilder: FeatherModuleBuilder {
 
-    public override func build() -> ViperModule {
+    public override func build() -> FeatherModule {
         MarkdownModule()
     }
 }

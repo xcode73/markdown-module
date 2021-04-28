@@ -7,13 +7,13 @@
 
 import FeatherCore
 
-final class MarkdownModule: ViperModule {
+final class MarkdownModule: FeatherModule {
 
-    static var name: String = "markdown"
+    static let moduleKey: String = "markdown"
 
     /// register the content filters hook
     func boot(_ app: Application) throws {
-        app.hooks.register("content-filters", use: contentFiltersHook)
+        app.hooks.register(.contentFilters, use: contentFiltersHook)
     }
 
     // MARK: - hooks

@@ -6,45 +6,27 @@
 //
 
 import FeatherCore
-import FluentSQLiteDriver
-import LiquidLocalDriver
-
-import SystemModule
-import UserModule
-import ApiModule
-import AdminModule
-import FrontendModule
-
 import MarkdownModule
-
-
-/// setup metadata delegate object
-Feather.metadataDelegate = FrontendMetadataDelegate()
 
 var env = try Environment.detect()
 try LoggingSystem.bootstrap(from: &env)
-let feather = try Feather(env: env)
-defer { feather.stop() }
+let app = Application(env)
+defer { app.shutdown() }
 
-feather.useSQLiteDatabase()
-feather.useLocalFileStorage()
-feather.usePublicFileMiddleware()
-feather.setMaxUploadSize("10mb")
+Feather.useSQLiteDatabase(app)
+Feather.useLocalFileStorage(app)
 
-try feather.configure([
-    /// core
-    SystemBuilder(),
-    UserBuilder(),
-    ApiBuilder(),
-    AdminBuilder(),
-    FrontendBuilder(),
-    
-    MarkdownBuilder(),
+app.feather.use([
+    MarkdownBuilder().build()
 ])
 
-/// reset resources folder if we're in debug mode
-if feather.app.isDebug {
-    try feather.reset(resourcesOnly: false)
+if app.isDebug {
+    try Feather.resetPublicFiles(app)
+    try Feather.copyTemplatesIfNeeded(app)
 }
 
-try feather.start()
+
+try Feather.boot(app)
+
+try app.run()
+
