@@ -9,11 +9,11 @@ env:
 	
 env.testing:
 	echo 'FEATHER_WORK_DIR="$(CUR_DIR)/"' > .env.testing
-	echo 'FEATHER_HTTPS=false' >> .env.development
+	echo 'FEATHER_HTTPS=false' >> .env.testing
 
 	
 clean:
 	rm -rf ./Resources/ ./Public/
 
 test:
-	swift test --enable-test-discovery
+	swift test
