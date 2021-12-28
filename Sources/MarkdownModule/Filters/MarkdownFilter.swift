@@ -22,14 +22,6 @@ struct MarkdownFilter: FeatherFilter {
             return html.replacingOccurrences(of: "<img src", with: "<img class=\"\" src")
         }
         parser.addModifier(modifier)
-
-        let html = parser.html(from: input.replacingOccurrences(of: "\r", with: "\n"))
-        return """
-        <div class="container">
-            <section>
-                \(html)
-            </section>
-        </div>
-        """
+        return parser.html(from: input.replacingOccurrences(of: "\r", with: "\n"))
     }
 }
