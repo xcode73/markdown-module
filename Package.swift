@@ -19,7 +19,7 @@ let package = Package(
             .product(name: "Ink", package: "Ink"),
         ],
         resources: [
-            .copy("Bundle"),
+//            .copy("Bundle"),
         ]),
     ]
 )
