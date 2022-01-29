@@ -18,10 +18,18 @@ struct MarkdownFilter: FeatherFilter {
     /// render markdown content using the MarkdownParser method, then place the result into a center aligned div
     func filter(_ input: String, _ req: Request) async throws -> String {
         var parser = MarkdownParser()
-        let modifier = Modifier(target: .images) { html, markdown in
-            return html.replacingOccurrences(of: "<img src", with: "<img class=\"\" src")
+        /// add support for blank links
+        let linkModifier = Modifier(target: .links) { html, markdown in
+            guard markdown.contains("|blank") else {
+                return html
+            }
+            return html.replacingOccurrences(of: "|blank\">", with: "\" target=\"_blank\">")
         }
-        parser.addModifier(modifier)
+        parser.addModifier(linkModifier)
+//        let modifier = Modifier(target: .images) { html, markdown in
+//            return html.replacingOccurrences(of: "<img src", with: "<img class=\"\" src")
+//        }
+//        parser.addModifier(modifier)
         return parser.html(from: input.replacingOccurrences(of: "\r", with: "\n"))
     }
 }
