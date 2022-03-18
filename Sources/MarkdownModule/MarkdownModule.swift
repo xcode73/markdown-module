@@ -5,7 +5,8 @@
 //  Created by Tibor Bodecs on 2021. 12. 21..
 //
 
-@_exported import FeatherCore
+import Feather
+import Vapor
 
 struct MarkdownModule: FeatherModule {
     
