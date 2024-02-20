@@ -10,7 +10,7 @@ let package = Package(
         .library(name: "MarkdownModule", targets: ["MarkdownModule"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/feathercms/feather-core", .branch("dev")),
+        .package(url: "https://github.com/xcode73/feather-core", .branch("test-dev")),
         .package(url: "https://github.com/JohnSundell/Ink", from: "0.5.0"),
     ],
     targets: [
