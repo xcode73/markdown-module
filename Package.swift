@@ -11,8 +11,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../feather-core"),
-//        .package(url: "git@github.com:xcode73/feather-core.git", branch: "main"),
-        .package(url: "git@github.com:JohnSundell/Ink.git", from: "0.6.0"),
+//        .package(url: "https://github.com/xcode73/feather-core.git", branch: "main"),
+        .package(url: "https://github.com/JohnSundell/Ink.git", from: "0.6.0"),
     ],
     targets: [
         .target(name: "MarkdownModule", dependencies: [
